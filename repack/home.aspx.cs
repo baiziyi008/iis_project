@@ -10,6 +10,7 @@ namespace repack
 {
     public partial class home : System.Web.UI.Page
     {
+        public string showName = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["repark_account"] == null)
@@ -23,7 +24,6 @@ namespace repack
             if (user.level == "0") {
                 showName += " (超级管理员)    ";
             }
-        }
-        public string showName = string.Empty;
+        }  
     }
 }
