@@ -87,6 +87,16 @@
         .auto-style28 {
             height: 8px;
         }
+        .auto-style29 {
+            width: 160px;
+            height: 23px;
+        }
+        .auto-style30 {
+            height: 23px;
+        }
+        .auto-style31 {
+            width: 250px;
+        }
         </style>
 </head>
 <body style="margin:0px auto; width:986px; background-color:#eeeeee;">
@@ -118,10 +128,11 @@
                     <hr />
                 </td>
             </tr>
+            
             <tr>
-                <td class="auto-style1" style="text-align: right">&nbsp;</td>
-                <td colspan="2">
-                    &nbsp;</td>
+                <td class="auto-style29" style="text-align: right"></td>
+                <td colspan="2" class="auto-style30">
+                    </td>
             </tr>
             <tr>
                 <td class="auto-style5" style="text-align: right">选择原包：</td>
@@ -145,6 +156,11 @@
                 <td class="auto-style12" style="text-align: right">&nbsp;</td>
                 <td class="auto-style13" colspan="2">
                     &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style10" style="text-align: right">&nbsp;</td>
+                <td class="auto-style11" colspan="2">
+                    <input id="quick_find" name="quick_find" type="text" value="输入查询" onchange="quick_find(this);"/><label for="quick_find">搜索</label></td>
             </tr>
             <tr>
                 <td class="auto-style14" style="text-align: right"></td>
@@ -435,6 +451,10 @@
         } else {
             document.getElementById("image_channel_id_" + n).style.display = "none";
         }
+    }
+
+    function quick_find(key) {
+
     }
 
     var select_package_info = null;

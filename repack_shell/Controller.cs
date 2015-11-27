@@ -113,6 +113,35 @@ namespace repack_shell
         }
 
         /// <summary>
+        /// 快速查询原包列表
+        /// </summary>
+        /// <returns></returns>
+        public List<table_repark_package_original> get_quick_original_list(string keyword)
+        {
+            List<table_repark_package_original> original_apks = new List<table_repark_package_original>();
+            string sql = "select * from repark_package_original where content like '%" + keyword + "%' order by id desc";
+            SQLiteDataReader reader = SqliteManager.GetManager().get_reader(sql);
+            if (reader != null)
+            {
+                while (reader.Read())
+                {
+                    table_repark_package_original original_apk = new table_repark_package_original();
+                    original_apk.id = int.Parse(reader["id"].ToString());
+                    original_apk.path = reader["path"].ToString();
+                    original_apk.uid = reader["uid"].ToString();
+                    original_apk.gid = reader["gid"].ToString();
+                    original_apk.content = reader["content"].ToString();
+                    original_apk.pkg_packagename = reader["pkg_packagename"].ToString();
+                    original_apk.state = int.Parse(reader["state"].ToString());
+                    original_apk.ctime = reader["ctime"].ToString();
+                    original_apks.Add(original_apk);
+                }
+                reader.Close();
+            }
+            return original_apks;
+        }
+
+        /// <summary>
         /// 获取原包列表
         /// </summary>
         /// <returns></returns>
